@@ -1,5 +1,5 @@
 import axios from 'axios';
-import rateLimit from 'express-rate-limit';
+
 async function sendRequest(otp: string) {
     
 
