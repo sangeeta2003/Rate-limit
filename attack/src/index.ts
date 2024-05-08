@@ -30,6 +30,7 @@ for(let i = 0; i< 99999;i+=100){
     const p = []
     // promise
     for ( let j = 0; j<100;j++){
-        p.push(sendRequest(()))
+        p.push(sendRequest((i+j).toString()));
     }
+    await Promise.all(p);
 }
