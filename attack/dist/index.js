@@ -15,26 +15,34 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = __importDefault(require("axios"));
 function sendRequest(otp) {
     return __awaiter(this, void 0, void 0, function* () {
-        let data = JSON.stringify({
-            "email": "var89@gmail.com",
-            "otp": otp,
-            "newPassword": "12345"
-        });
         let config = {
-            method: 'post',
+            method: 'get',
             maxBodyLength: Infinity,
-            url: 'http://localhost:3000/reset-password',
+            url: 'https://harkiratapi.classx.co.in/get/otpverify?useremail=harshkeshri1234567%40gmail.com&otp=' + otp,
             headers: {
-                'Content-Type': 'application/json'
-            },
-            data: data
+                'accept': '*/*',
+                'accept-language': 'en-GB,en;q=0.5',
+                'auth-key': 'appxapi',
+                'client-service': 'Appx',
+                'device-type': '',
+                'origin': 'https://100xdevs.com',
+                'priority': 'u=1, i',
+                'referer': 'https://100xdevs.com/',
+                'sec-ch-ua': '"Chromium";v="124", "Brave";v="124", "Not-A.Brand";v="99"',
+                'sec-ch-ua-mobile': '?0',
+                'sec-ch-ua-platform': '"Linux"',
+                'sec-fetch-dest': 'empty',
+                'sec-fetch-mode': 'cors',
+                'sec-fetch-site': 'cross-site',
+                'sec-gpc': '1',
+                'source': 'website',
+                'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
+            }
         };
         try {
             yield axios_1.default.request(config);
-            // console.log(JSON.stringify(response.data));
         }
-        catch (error) {
-            // console.log(error);
+        catch (e) {
         }
     });
 }
